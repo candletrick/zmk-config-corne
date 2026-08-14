@@ -12,7 +12,13 @@
         keymap {
                 compatible = "zmk,keymap";
 
-                default_layer {
+                /**
+                	This is the software layer. It is a standard keyboard. The fhay keymap emulates the next three layers,
+                		with:
+                			RALT // symbol layer
+                			RALT + SHIFT // number layer
+					*/
+                default_layer { // layer 0
 // -----------------------------------------------------------------------------------------
 // |  TAB |  Q  |  W  |  E  |  R  |  T  |   |  Y  |  U   |  I  |  O  |  P  | BSPC |
 // | CTRL |  A  |  S  |  D  |  F  |  G  |   |  H  |  J   |  K  |  L  |  ;  |  '   |
@@ -22,35 +28,71 @@
    &kp TAB   &kp Q &kp W &kp E &kp R &kp T      &kp Y &kp U  &kp I     &kp O   &kp P    &kp BSPC
    &kp LCTRL &kp A &kp S &kp D &kp F &kp G      &kp H &kp J  &kp K     &kp L   &kp SEMI &kp SQT
    &kp LSHFT &kp Z &kp X &kp C &kp V &kp B      &kp N &kp M  &kp COMMA &kp DOT &kp FSLH &kp RSHFT
-                   &to 1 &kp LGUI &kp LSHFT     &kp RALT &mo 2 &kp ESC
+                   &to 1 &kp LGUI &kp LSHFT     &kp RALT &mo 4 &trans 
                         >;
                 };
 
-                fhay_layer {
+                /**
+                	When software is not available, switch to this layer, and then get the next two layers on a
+                	hardware level.
+                	*/
+                fhay_layer { // layer 1
 // -----------------------------------------------------------------------------------------
-// |  TAB |  !  |  @  |  #  |  $  |  %  |   |  ^  |  &  |  *  |  (  |  )  | BSPC |
-// | CTRL |     |     |     |     |     |   |  -  |  =  |  [  |  ]  |  \  |  `   |
-// | SHFT |     |     |     |     |     |   |  _  |  +  |  {  |  }  | "|" |  ~   |
-//                    | GUI |     | SPC |   | ENT |     | ALT |
+// |  TAB |  F  |  H  |  A  |  Y  |  Q  |   |  ^  |  &  |  *  |  (  |  )  | BSPC |
+// | CTRL |  W  |  I  |  D  |  T  |  B  |   |  -  |  =  |  [  |  ]  |  \  |  `   |
+// | SHFT |  Z  |  X  |  C  |  V  |  V  |   |  _  |  +  |  {  |  }  | "|" |  ~   |
+//                    |     |     | SPC |   | RALT|     |     |
                         bindings = <
-   &kp TAB   &kp F &kp H &kp A &kp Y &kp Q      &kp K &kp P  &kp S     &kp R   &kp /    &kp BSPC
-   &kp LCTRL &kp W &kp I &kp D &kp T &kp B      &kp U &kp E  &kp N     &kp O   &kp L  &kp SQT
-   &kp LSHFT &kp Z &kp X &kp C &kp V &kp J      &kp G &kp M  &kp COMMA &kp DOT &kp SEMI &kp RSHFT
-                   &to 0 &kp RET &kp SPACE     &kp SPACE &kp UP &kp DOWN
+   &kp TAB   &kp F &kp H &kp A   &kp Y &kp Q      &kp K &kp P  &kp S     &kp R   &kp /    &kp BSPC
+   &kp LCTRL &kp W &kp I &kp D   &kp T &kp B      &kp U &kp E  &kp N     &kp O   &kp L    &kp SQT
+   &kp LSHFT &kp Z &kp X &kp C   &kp V &kp J      &kp G &kp M  &kp COMMA &kp DOT &kp SEMI &kp RSHFT
+                   &to 0 &trans  &kp SPACE        &mo 2 &mo 4  &trans
                         >;
                 };
 
-                lower_layer {
+                fhay_symbol_layer { // layer 2
+// -----------------------------------------------------------------------------------------
+// |      |  `  |  #  |  (  |  [  |  @  |   |  &  |  ]  |  )  |  ?  |  [  |      |
+// |      |  {  |  -  |  $  |  /  |  |  |   |  _  |     |  =  |  !  |  {  |      |
+// |      |  }  |  %  |  ^  |  ,  |  \  |   |  _  |  *  |  *  |  }  |  }  |      |
+//                    |     |     |     |   |     |     |     |
+					bindings =  <
+&trans      &kp  GRAVE  &kp  HASH   &kp  LPAR   &kp  LBKT  &kp  AT    &kp  AMPS  &kp  RBKT  &kp  RPAR   &kp  QMARK  &kp  FSLH  &trans
+&trans      &kp  LBRC   &kp  MINUS  &kp  DLLR   &kp  FLSH  &kp  PIPE  &kp  UNDER &kp  RET   &kp  EQUAL  &kp  EXCL   &kp  LBKT  &trans
+&trans      &kp  RBKT   &kp  PRCNT  &kp  CARET  &kp  COMMA &kp  BSLH  &kp  UNDER &kp  STAR  &kp  STAR   &kp  RBKT   &kp  RBKT  &trans
+                                    &trans      &trans     &mo 3      &trans     &trans     &trans
+					>;
+                };
+
+                fhay_number_layer { // layer 3
+// -----------------------------------------------------------------------------------------
+// |      |  `  |  #  |  (  |  [  |  @  |   |  &  |  ]  |  )  |  ?  |  [  |      |
+// |      |  {  |  -  |  $  |  /  |  |  |   |  _  |     |  =  |  !  |  {  |      |
+// |      |  }  |  %  |  ^  |  ,  |  \  |   |  _  |  *  |  *  |  }  |  }  |      |
+//                    |     |     |     |   |     |     |     |
+					bindings =  <
+// 1          2           3           4           5         6      |   6           5         4           3           2          1
+&trans      &trans      &kp N3      &kp N2      &trans     &trans     &trans     &trans     &kp N7      &kp N8      &trans     &trans
+&trans      &3rans      &trans      &kp N4      &kp N1     &trans     &trans     &kp N0     &kp N5      &kp N6      &kp N9     &trans
+&trans      &trans      &trans      &trans      &trans     &trans     &trans     &trans     &trans      &trans      &trans     &trans
+                                    &trans      &trans     &trans     &trans     &trans     &trans
+					>;
+                };
+
+                /**
+                	This layer is currently being used for on-keyboard hardware controls
+                	*/
+                lower_layer { // layer 3
 // -----------------------------------------------------------------------------------------
 // |  TAB |  1  |  2  |  3  |  4  |  5  |   |  6  |  7  |  PG |  PGD|  0  | BSPC |
 // | BTCLR| BT1 | BT2 | BT3 | BT4 | BT5 |   |     |     |  UP |     |     |      |
 // | SHFT |     |     |     |     |     |   |     | LFT | DWN | RGT |     |      |
 //                    | GUI |     | SPC |   | ENT |     | ALT |
                         bindings = <
-   &kp TAB    &kp N1       &kp N2       &kp N3       &kp N4       &kp N5         &kp N6   &kp N7    &kp PAGE_UP   &kp PAGE_DOWN    &kp N0 &kp K_VOLUME_UP
-   &bt BT_CLR &bt BT_SEL 0 &bt BT_SEL 1 &bt BT_SEL 2 &bt BT_SEL 3 &bt BT_SEL 4   &trans   &kp RET   &kp UP        &trans           &trans &kp K_VOLUME_DOWN
-   &kp LSHFT  &trans       &trans       &trans       &trans       &trans         &trans   &kp LEFT  &kp DOWN      &kp RIGHT        &trans &trans
-                                        &kp LGUI     &trans       &kp SPACE      &kp RET  &trans    &kp RET
+   &trans     &trans       &trans       &trans       &ktrans      &kp ESC        &trans   &trans    &kp PAGE_UP   &kp PAGE_DOWN  &trans &kp K_VOLUME_UP
+   &bt BT_CLR &bt BT_SEL 0 &bt BT_SEL 1 &bt BT_SEL 2 &bt BT_SEL 3 &bt BT_SEL 4   &trans   &kp RET   &kp UP        &trans         &trans &kp K_VOLUME_DOWN
+   &trans     &trans       &trans       &trans       &trans       &trans         &trans   &kp LEFT  &kp DOWN      &kp RIGHT      &trans &trans
+                                        &trans       &trans       &trans         &trans   &trans    &trans 
                                         
                         >;
                 };
