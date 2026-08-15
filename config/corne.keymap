@@ -43,7 +43,7 @@
 // | SHFT |  Z  |  X  |  C  |  V  |  V  |   |  _  |  +  |  {  |  }  | "|" |  ~   |
 //                    |     |     | SPC |   | RALT|     |     |
                         bindings = <
-   &kp TAB   &kp F &kp H &kp A   &kp Y &kp Q      &kp K &kp P  &kp S     &kp R   &kp /    &kp BSPC
+   &kp TAB   &kp F &kp H &kp A   &kp Y &kp Q      &kp K &kp P  &kp S     &kp R   &kp FSLH &kp BSPC
    &kp LCTRL &kp W &kp I &kp D   &kp T &kp B      &kp U &kp E  &kp N     &kp O   &kp L    &kp SQT
    &kp LSHFT &kp Z &kp X &kp C   &kp V &kp J      &kp G &kp M  &kp COMMA &kp DOT &kp SEMI &kp RSHFT
                    &to 0 &trans  &kp SPACE        &mo 2 &mo 4  &trans
