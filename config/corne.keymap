@@ -73,7 +73,7 @@
 // 1          2           3           4           5         6      |   6           5         4           3           2          1
 					bindings =  <
 &trans      &trans      &kp N3      &kp N2      &trans     &trans     &trans     &trans     &kp N7      &kp N8      &trans     &trans
-&trans      &3rans      &trans      &kp N4      &kp N1     &trans     &trans     &kp N0     &kp N5      &kp N6      &kp N9     &trans
+&trans      &trans      &trans      &kp N4      &kp N1     &trans     &trans     &kp N0     &kp N5      &kp N6      &kp N9     &trans
 &trans      &trans      &trans      &trans      &trans     &trans     &trans     &trans     &trans      &trans      &trans     &trans
                                     &trans      &trans     &trans     &trans     &trans     &trans
 					>;
