@@ -58,7 +58,7 @@
 //                    |     |     |     |   |     |     |     |
 					bindings =  <
 &trans      &kp  GRAVE  &kp  HASH   &kp  LPAR   &kp  LBKT  &kp  AT    &kp  AMPS  &kp  RBKT  &kp  RPAR   &kp  QMARK  &kp  FSLH  &trans
-&trans      &kp  LBRC   &kp  MINUS  &kp  DLLR   &kp  FLSH  &kp  PIPE  &kp  UNDER &kp  RET   &kp  EQUAL  &kp  EXCL   &kp  LBKT  &trans
+&trans      &kp  LBRC   &kp  MINUS  &kp  DLLR   &kp  FSLH  &kp  PIPE  &kp  UNDER &kp  RET   &kp  EQUAL  &kp  EXCL   &kp  LBKT  &trans
 &trans      &kp  RBKT   &kp  PRCNT  &kp  CARET  &kp  COMMA &kp  BSLH  &kp  UNDER &kp  STAR  &kp  STAR   &kp  RBKT   &kp  RBKT  &trans
                                     &trans      &trans     &mo 3      &trans     &trans     &trans
 					>;
@@ -70,8 +70,8 @@
 // |      |  {  |  -  |  $  |  /  |  |  |   |  _  |     |  =  |  !  |  {  |      |
 // |      |  }  |  %  |  ^  |  ,  |  \  |   |  _  |  *  |  *  |  }  |  }  |      |
 //                    |     |     |     |   |     |     |     |
-					bindings =  <
 // 1          2           3           4           5         6      |   6           5         4           3           2          1
+					bindings =  <
 &trans      &trans      &kp N3      &kp N2      &trans     &trans     &trans     &trans     &kp N7      &kp N8      &trans     &trans
 &trans      &3rans      &trans      &kp N4      &kp N1     &trans     &trans     &kp N0     &kp N5      &kp N6      &kp N9     &trans
 &trans      &trans      &trans      &trans      &trans     &trans     &trans     &trans     &trans      &trans      &trans     &trans
